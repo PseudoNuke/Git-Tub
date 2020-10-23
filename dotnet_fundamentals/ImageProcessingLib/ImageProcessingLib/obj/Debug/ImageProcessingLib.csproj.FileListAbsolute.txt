@@ -1,0 +1,6 @@
+C:\Users\320104254\source\repos\dotnet_fundamentals\ImageProcessingLib\ImageProcessingLib\bin\Debug\ImageProcessingLib.dll
+C:\Users\320104254\source\repos\dotnet_fundamentals\ImageProcessingLib\ImageProcessingLib\bin\Debug\ImageProcessingLib.pdb
+C:\Users\320104254\source\repos\dotnet_fundamentals\ImageProcessingLib\ImageProcessingLib\obj\Debug\ImageProcessingLib.csprojAssemblyReference.cache
+C:\Users\320104254\source\repos\dotnet_fundamentals\ImageProcessingLib\ImageProcessingLib\obj\Debug\ImageProcessingLib.csproj.CoreCompileInputs.cache
+C:\Users\320104254\source\repos\dotnet_fundamentals\ImageProcessingLib\ImageProcessingLib\obj\Debug\ImageProcessingLib.dll
+C:\Users\320104254\source\repos\dotnet_fundamentals\ImageProcessingLib\ImageProcessingLib\obj\Debug\ImageProcessingLib.pdb

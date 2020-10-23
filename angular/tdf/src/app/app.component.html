@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <h1>Bootcamp Enrollment Form</h1>
+  <div class="alert alert-danger" *ngIf="errorMsg">{{ errorMsg }}</div>
+  <!-- ngForm directive exports itself as string to a reference variable, for us to have a reference. -->
+  <!-- ngForm allows us to track the elements with form-control -->
+  <form #userForm="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit(userForm)" novalidate>
+
+    <!-- {{ userForm.value | json }} -->
+
+    <hr />
+    <!-- To bind the userModel, we bind the properties (property binding using '[]')of userModel to the ngModel directive -->
+    <!-- {{ userModel  | json }} -->
+    <!-- In order to display the above code you need to use ngModel directive -->
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" required #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" [(ngModel)]="userModel.name" name="username">
+      <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required.</small>
+      <!-- #name is a template reference variable-->
+      <!-- By assigning the #name to a ngModel it now points to ngModel of this form-control -->
+    </div>
+
+    <div class="form-group">
+      <label>E-mail</label>
+      <input type="email" class="form-control" [(ngModel)]="userModel.email" name="email">
+    </div>
+
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="tel" #phone="ngModel" required pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched" class="form-control" [(ngModel)]="userModel.phone" name="phone">
+      <!-- <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">Phone number is required and must be 10 digits.</small> -->
+      <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+        <small class="text-danger" *ngIf="phone.errors.pattern">Phone number must be 10 digits</small>
+        <small class="text-danger" *ngIf="phone.errors.required">Phone number is required</small>
+      </div>
+    </div>
+
+    <!-- Now, we need to select the topic from an array of topics -->
+    <div class="form-group">
+      <select (blur)="validateTopic(topic.value)" (change)="validateTopic(topic.value)" [class.is-invalid]="topicHasError && topic.touched" required #topic="ngModel" class="custom-select" [(ngModel)]="userModel.topic" name="topic">
+        <option value="default">Iam interested in</option>
+        <option *ngFor="let topic of topics">{{ topic }}</option>
+      </select>
+      <small class="text-danger" [class.d-none]="!topicHasError || topic.untouched">Please choose a topic</small>
+    </div>
+
+    <!-- Now, we need to select the time slot of the class from radio buttons-->
+    <div class="mb-3">
+      <label>Time preference</label>
+      <div class="form-check">
+        <input class="form-check-input" [(ngModel)]="userModel.timePreference" type="radio" name="timePreference" value="morning">
+        <label class="form-check-label">Morning (9AM - 12PM)</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" [(ngModel)]="userModel.timePreference" type="radio" name="timePreference" value="evening">
+        <label class="form-check-label">Evening (5PM - 8PM)</label>
+      </div>
+    </div>
+
+    <!-- Now, we need to ensure that the user subscribe to promotional offers using checkbox-->
+    <div class="form-check mb-3">
+      <input class="form-check-input" [(ngModel)]="userModel.subscribe" name="subscribe" type="checkbox">
+      <label class="form-check-label">Send me promotional offers</label>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="userForm.form.invalid || topicHasError">Submit Form</button>
+    <!-- Added disabled property for form validation -->
+  </form>
+
+  <!-- bind the form data to a user defined model and send to server -->
+  <!-- Before sending to server ensure client side validation and provide visual feedback to the user -->
+  <!-- ngModel properties are used to provide visual feedback to the user when filling the forms -->
+  <!-- Display the error message along with visual feedback -->
+
+  <!-- Form level validation to disable the submit button until the form is valid -->
+  <!-- Submit the form data to a server using Enrollment Service-->
+  <!-- We now setup a express server to recieve the form data--> 
+</div>

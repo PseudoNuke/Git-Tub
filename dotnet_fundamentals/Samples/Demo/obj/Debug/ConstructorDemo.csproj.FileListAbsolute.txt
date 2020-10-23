@@ -1,0 +1,7 @@
+C:\Users\320104254\source\repos\dotnet_fundamentals\Samples\Demo\bin\Debug\Demo.exe.config
+C:\Users\320104254\source\repos\dotnet_fundamentals\Samples\Demo\bin\Debug\Demo.exe
+C:\Users\320104254\source\repos\dotnet_fundamentals\Samples\Demo\bin\Debug\Demo.pdb
+C:\Users\320104254\source\repos\dotnet_fundamentals\Samples\Demo\obj\Debug\ConstructorDemo.csprojAssemblyReference.cache
+C:\Users\320104254\source\repos\dotnet_fundamentals\Samples\Demo\obj\Debug\ConstructorDemo.csproj.CoreCompileInputs.cache
+C:\Users\320104254\source\repos\dotnet_fundamentals\Samples\Demo\obj\Debug\Demo.exe
+C:\Users\320104254\source\repos\dotnet_fundamentals\Samples\Demo\obj\Debug\Demo.pdb
